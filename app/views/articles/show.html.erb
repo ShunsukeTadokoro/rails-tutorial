@@ -1,3 +1,11 @@
 <p>title: <%= @article.title %></p>
 <p>text: <%= @article.text %></p>
-<%= link_to 'back to index', articles_path %>
+<%= link_to 'back to index', articles_path %><br>
+<%= link_to 'edit', edit_article_path %>
+
+<h2>Comments</h2>
+<ul>
+<%= render @article.comments %>
+</ul>
+<h2>Add Comment</h2>
+<%= render "comments/form" %>

@@ -1,0 +1,6 @@
+  <li>
+    <p><%= comment.body %></p>
+    <small><%= comment.commenter %></small>
+    <p><%= link_to 'Delete Comment', [comment.article, comment], method: :delete, data: {confirm: 'いいかな？'} %></p>
+    <!-- <%= comment.article.inspect %> <br><%= comment.inspect %> -->
+  </li>

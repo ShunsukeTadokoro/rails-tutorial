@@ -1,0 +1,29 @@
+<h1>Edit Articles</h1>
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+<!--
+form_forヘルパーメソッドの最初のパラメータには@articleのようなオブジェクトを使用できます。
+@articleのようなオブジェクトが最初のパラメータとして渡されると、ヘルパーはそのパラメータに含まれているフィールドを使用してフォームの項目を埋めます。
+ここで面白いのは、@articleのようなインスタンス変数の代わりに同じ名前のシンボル (:articleなど) を渡した場合にも動作はまったく同じであることです。
+-->
+  <% if @article.errors.any? %>
+    <p><%= pluralize(@article.errors.count, "error") %> prohibited
+      this article from being saved:</p>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title  %>
+  </p>
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'back', articles_path %>
